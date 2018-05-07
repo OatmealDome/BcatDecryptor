@@ -150,7 +150,7 @@ namespace BcatDecryptor
 
             // Create a new Pkcs5S2ParametersGenerator and initialize it
             Pkcs5S2ParametersGenerator generator = new Pkcs5S2ParametersGenerator(new Sha256Digest());
-            generator.Init(Encoding.ASCII.GetBytes(args[1]), Encoding.ASCII.GetBytes(salt), 4096);
+            generator.Init(Encoding.ASCII.GetBytes(args[1].ToLower()), Encoding.ASCII.GetBytes(salt), 4096);
 
             // Generate the key parameter
             KeyParameter parameter = (KeyParameter)generator.GenerateDerivedParameters("aes" + keySize, keySize);
