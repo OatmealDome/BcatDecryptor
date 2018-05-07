@@ -59,7 +59,7 @@ namespace BcatDecryptor
             if (args.Length != 3)
             {
                 // Print out usage
-                Console.WriteLine("BcatDecryptor.exe <title ID> <BCAT passphrase> <file path>\n");
+                Console.WriteLine("BcatDecryptor.exe <title ID> <BCAT passphrase> <file path>");
 
                 return;
             }
@@ -68,7 +68,7 @@ namespace BcatDecryptor
             if (!File.Exists(args[2]))
             {
                 // Print error
-                Console.WriteLine("The file doesn't exist.\n");
+                Console.WriteLine("The file doesn't exist.");
 
                 return;
             }
@@ -77,7 +77,7 @@ namespace BcatDecryptor
             if (args[0].Length != 16)
             {
                 // Print error
-                Console.WriteLine("Invalid title ID.\n");
+                Console.WriteLine("Invalid title ID.");
 
                 return;
             }
@@ -102,7 +102,7 @@ namespace BcatDecryptor
                 // Check magic numbers
                 if (reader.ReadUInt32() != 0x62636174) // "bcat"
                 {
-                    Console.WriteLine("This file isn't a BCAT container file.\n");
+                    Console.WriteLine("This file isn't a BCAT container file.");
 
                     return;
                 }
@@ -122,7 +122,7 @@ namespace BcatDecryptor
             if (secretData.Length < secretDataIdx)
             {
                 // Print error
-                Console.WriteLine("This BCAT file is not supported by this version (err: secret data).\n");
+                Console.WriteLine("This BCAT file is not supported by this version (err: secret data).");
 
                 return;
             }
@@ -144,7 +144,7 @@ namespace BcatDecryptor
                     keySize = 256;
                     break;
                 default:
-                    Console.WriteLine("This BCAT file is not supported by this version (err: crypto).\n");
+                    Console.WriteLine("This BCAT file is not supported by this version (err: crypto).");
                     return;
             }
 
@@ -177,7 +177,7 @@ namespace BcatDecryptor
             File.WriteAllBytes(outputPath, decryptedBytes);
 
             // Print out that we're done
-            Console.WriteLine("Wrote file successfully.\n");
+            Console.WriteLine("Wrote file successfully.");
         }
     }
 
